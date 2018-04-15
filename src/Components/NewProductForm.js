@@ -49,7 +49,8 @@ class NewProductForm extends Component {
 
 	handleData(data) {
 		document.getElementById("loader").classList.add("loader");
-		alert("Wepale");
+		const totalSteps = data.length;
+		let currentStep = 0;
 	  data.map( productInfo => {
 	    let product = {
 			name:"",
@@ -240,7 +241,13 @@ class NewProductForm extends Component {
 			}
 		} )
 	  product.meta_data.forEach( (element, index) => {
-      if ( index == 3 ) {
+			if ( index === 1 ) {
+				const price = parseFloat(productInfo.regular_price),
+							conversion_rate = 100,
+							points = Math.round(price/conversion_rate);
+				element.value = points;
+			}
+      if ( index === 3 ) {
 				element.value.Joven.regular_price = productInfo.regular_price
 				element.value.reserva.regular_price = productInfo.regular_price
 				element.value.clasico.regular_price = productInfo.regular_price
@@ -256,10 +263,13 @@ class NewProductForm extends Component {
 				headers: { "Content-Type": "application/json" }
 			}).then(res => res.json()).then(data => {
 				console.log(data)
+				currentStep += 1;
+				if (currentStep === totalSteps) {
+					document.getElementById("loader").classList.remove("loader");
+				}
 			})
 		},8000)
 	} )
-	document.getElementById("loader").classList.remove("loader")
 	}
   render(){
 		const csvKeys = Object.keys(this.state);
