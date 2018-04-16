@@ -151,63 +151,63 @@ class NewProductForm extends Component {
 			]
 		  };
 	let categoryID;
-	if(productInfo.categories == "ESPUMANTE") {
+	if(productInfo.categories === "ESPUMANTE") {
 		categoryID = 430;
 	}
 
-	else if ( productInfo.categories == "VINO" ) {
+	else if ( productInfo.categories === "VINO" ) {
 		categoryID = 431;
 	}
 
-	else if ( productInfo.categories == "AGUA" ) {
+	else if ( productInfo.categories === "AGUA" ) {
 		categoryID = 429;
 	}
 
-	else if ( productInfo.categories == "TEQUILA" ) {
+	else if ( productInfo.categories === "TEQUILA" ) {
 		categoryID = 433;
 	}
 
-	else if ( productInfo.categories == "PISCO" ) {
+	else if ( productInfo.categories === "PISCO" ) {
 		categoryID = 434;
 	}
 
-	else if ( productInfo.categories == "GIN" ) {
+	else if ( productInfo.categories === "GIN" ) {
 		categoryID = 468;
 	}
 
-	else if ( productInfo.categories == "Amaretto" ) {
+	else if ( productInfo.categories === "Amaretto" ) {
 		categoryID = 470;
 	}
 
-	else if ( productInfo.categories == "Limoncello" ) {
+	else if ( productInfo.categories === "Limoncello" ) {
 		categoryID = 471;
 	}
 
-	else if ( productInfo.categories == "Raspberry" ) {
+	else if ( productInfo.categories === "Raspberry" ) {
 		categoryID = 472;
 	}
 
-	else if ( productInfo.categories == "VODKA" ) {
+	else if ( productInfo.categories === "VODKA" ) {
 		categoryID = 469;
 	}
 
-	else if ( productInfo.categories == "BRANDY" ) {
+	else if ( productInfo.categories === "BRANDY" ) {
 		categoryID = 493;
 	}
 
-	else if ( productInfo.categories == "LICOR" ) {
+	else if ( productInfo.categories === "LICOR" ) {
 		categoryID = 533;
 	}
 
-	else if ( productInfo.categories == "Chartreuse" ) {
+	else if ( productInfo.categories === "Chartreuse" ) {
 		categoryID = 505;
 	}
 
-	else if ( productInfo.categories == "WHISKY" ) {
+	else if ( productInfo.categories === "WHISKY" ) {
 		categoryID = 503;
 	}
 
-	else if ( productInfo.categories == "RON" ) {
+	else if ( productInfo.categories === "RON" ) {
 		categoryID = 504;
 	}
 
@@ -249,10 +249,10 @@ class NewProductForm extends Component {
 			}
       if ( index === 3 ) {
 				element.value.Joven.regular_price = productInfo.regular_price
-				element.value.reserva.regular_price = productInfo.regular_price
+				element.value.reserva.regular_price = Math.round(productInfo.regular_price*0.9).toString()
 				element.value.clasico.regular_price = productInfo.regular_price
-				element.value.Icono.regular_price = productInfo.regular_price
-				element.value["Gran-Reserva"].regular_price = productInfo.regular_price
+				element.value.Icono.regular_price = Math.round(productInfo.regular_price*0.8).toString()
+				element.value["Gran-Reserva"].regular_price = Math.round(productInfo.regular_price*0.85).toString()
 			}
 	  })
 		
